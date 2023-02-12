@@ -63,6 +63,7 @@ public class Task1L1 extends MainTaskL1 {
         JFrame frame = MyTable.frameDefault("Вариационный и статистический ряд", 500, 800);
 
         DefaultTableModel TModel = new DefaultTableModel(columns, 0);
+
         for(int i=0 ; i<numCount; i++) {
 
             Object[] addingRow = {row.get(i), sortedRow.get(i)};

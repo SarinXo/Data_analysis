@@ -13,6 +13,7 @@ public class MyTable{
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         return frame;
     }
+
     public static void scrollDefault(JTable table, JFrame frame, int width, int height){
 
         JScrollPane scroll = new JScrollPane(table);
@@ -21,4 +22,5 @@ public class MyTable{
         frame.setVisible(true);
 
     }
+
 }

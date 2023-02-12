@@ -8,6 +8,7 @@ public abstract class Chart extends ApplicationFrame {
 
     public Chart(String applicationTitle){super(applicationTitle);}
 
+
     public static void showChart(Chart chart) {
         chart.pack( );
         RefineryUtilities.centerFrameOnScreen( chart );

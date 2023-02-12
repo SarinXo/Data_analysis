@@ -11,9 +11,10 @@ import java.util.Scanner;
 
 public abstract class MainTaskL1 {
 
-    protected final int numCount = 110;
+
 
     protected List<Integer> row = new ArrayList<Integer>();
+    protected int numCount;
     protected List<Integer> sortedRow = new ArrayList<Integer>();
 
 
@@ -42,7 +43,7 @@ public abstract class MainTaskL1 {
             }
 
         }
-
+        numCount = row.size();
         sortedRow.addAll(row);
         Collections.sort(sortedRow);
 

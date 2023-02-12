@@ -7,16 +7,15 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Task2L1 extends MainTaskL1 {
 
     //The result in the Sturgess formula (interval count)
-    private final int k = (int)(1 +3.32 * Math.log10(numCount));
+    private final int k = (int)Math.round(1 +3.32 * Math.log10(numCount));
 
     //interval length
-    private final int h= (int)((sortedRow.get(numCount-1) - sortedRow.get(0))/k);
+    private final double h= ((double)(sortedRow.get(numCount-1) - sortedRow.get(0))/k);
 
     public Task2L1(){
         super();
@@ -26,10 +25,9 @@ public class Task2L1 extends MainTaskL1 {
 
         List<Double[]> Data = new ArrayList<>();
 
-        byte numberOfInterval = 1;
-        int minRange = sortedRow.get(0);
-        int periodicity = 0;
-        int bankPeriodicity=0;
+        double minRange = sortedRow.get(0);
+        double periodicity = 0.0;
+        double bankPeriodicity=0;
         double bankRelativeFrequency = 0.0;
 
         for (int ind = 0; ind< numCount;) {
@@ -44,22 +42,21 @@ public class Task2L1 extends MainTaskL1 {
             }
 
             bankPeriodicity += periodicity;
-            double relativeFrequency = (double) periodicity / numCount;
+            double relativeFrequency = periodicity / numCount;
             bankRelativeFrequency += relativeFrequency;
 
             Data.add(new Double[]{
-                            (double) minRange,
-                            (double) (minRange + h),
-                            (double) (((minRange << 1) + h) / 2),
-                            (double) periodicity,
-                            (double) bankPeriodicity,
+                            minRange,
+                            (minRange + h),
+                            (((minRange * 2) + h) / 2),
+                            periodicity,
+                            bankPeriodicity,
                             relativeFrequency,
                             bankRelativeFrequency
                     }
             );
             minRange += h;
-            numberOfInterval++;
-            periodicity = 0;    //new DecimalFormat("#0.0000").format();
+            periodicity = 0.0;    //new DecimalFormat("#0.0000").format();
         }
 
         return Data;

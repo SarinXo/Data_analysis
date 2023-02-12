@@ -1,6 +1,7 @@
 package Charts.BarChart;
 
 import Charts.Chart;
+import Charts.ChartPattern;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -10,7 +11,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.nio.charset.CharacterCodingException;
 
-public class BarChart extends Chart {
+public class BarChart extends ChartPattern {
 
     public BarChart(DefaultCategoryDataset dataset,
                     String applicationTitle ,
@@ -19,19 +20,25 @@ public class BarChart extends Chart {
                     String categoryAyisLabel,
                     int width, int height) {
 
-        super( applicationTitle );
-        JFreeChart barChart = ChartFactory.createBarChart(
-                chartTitle,
-                categoryAxisLabel,
-                categoryAyisLabel,
-                dataset,
-                PlotOrientation.VERTICAL,
-                true, true, false);
+        super(dataset, applicationTitle , chartTitle, categoryAxisLabel, categoryAyisLabel, width,  height);
 
-        ChartPanel chartPanel = new ChartPanel( barChart );
-        chartPanel.setPreferredSize(new java.awt.Dimension( width , height ) );
-        setContentPane( chartPanel );
     }
 
+    @Override
+    public JFreeChart chartType(String chartTitle,
+                                String categoryAxisLabel,
+                                String categoryAyisLabel,
+                                DefaultCategoryDataset dataset){
+
+        return  ChartFactory.createBarChart(
+                    chartTitle,
+                    categoryAxisLabel,
+                    categoryAyisLabel,
+                    dataset,
+                    PlotOrientation.VERTICAL,
+                    true,true,false
+        );
+
+    }
 
 }

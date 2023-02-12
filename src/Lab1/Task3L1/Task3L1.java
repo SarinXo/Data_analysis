@@ -37,25 +37,33 @@ public class Task3L1 extends Task2L1 {
     private LineChart[] createPolygons(){
         return new LineChart[]{
                 new LineChart(              //frequencyPolygon
-                        createDataset(3, "Расенган", 2),
-                "Нарута",
+                        createDataset(3, " ", 2),
+                "Linechart",
                 "Полигон частот",
                 "Интервалы",
                 "Кол-во чисел в интервале",
                 500, 400
                 ),
                 new LineChart(              //frequencyCountPolygon
-                        createDataset(4, "Шаренган", 2),
-                        "Саске",
+                        createDataset(4, " ", 2),
+                        "Linechart",
                         "Полигон накопленных частот",
                         "Интервалы",
                         "Кол-во чисел",
                         500, 400
                 ),
                 new LineChart(              //frequencyPolygon
-                        createDataset(5, "Смэрть", 2),
-                        "Мадара",
+                        createDataset(5, " ", 2),
+                        "Linechart",
                         "Полигон относительных частот",
+                        "Интервалы",
+                        "Процент",
+                        500, 400
+                ),
+                new LineChart(              //frequencyPolygon
+                        createDataset(6, " ", 2),
+                        "Linechart",
+                        "Относительная накопленная частота",
                         "Интервалы",
                         "Процент",
                         500, 400
@@ -68,25 +76,33 @@ public class Task3L1 extends Task2L1 {
     private BarChart[] createHistogram(){
         return new BarChart[]{
                 new BarChart(              //frequencyPolygon
-                        createDataset(3, "Расенган", 2),
-                        "Нарута",
+                        createDataset(3, " ", 2),
+                        "BarChart",
                         "Полигон частот",
                         "Интервалы",
                         "Кол-во чисел в интервале",
                         500, 400
                 ),
                 new BarChart(              //frequencyCountPolygon
-                        createDataset(4, "Шаренган", 2),
-                        "Саске",
+                        createDataset(4, " ", 2),
+                        "BarChart",
                         "Полигон накопленных частот",
                         "Интервалы",
                         "Кол-во чисел",
                         500, 400
                 ),
                 new BarChart(              //frequencyPolygon
-                        createDataset(5, "Смэрть", 2),
-                        "Мадара",
+                        createDataset(5, " ", 2),
+                        "BarChart",
                         "Полигон относительных частот",
+                        "Интервалы",
+                        "Процент",
+                        500, 400
+                ),
+                new BarChart(              //frequencyPolygon
+                        createDataset(6, " ", 2),
+                        "BarChart",
+                        "Относительная накопленная частота",
                         "Интервалы",
                         "Процент",
                         500, 400
