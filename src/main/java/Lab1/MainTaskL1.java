@@ -11,8 +11,6 @@ import java.util.Scanner;
 
 public abstract class MainTaskL1 {
 
-
-
     protected List<Integer> row = new ArrayList<Integer>();
     protected int numCount;
     protected List<Integer> sortedRow = new ArrayList<Integer>();
