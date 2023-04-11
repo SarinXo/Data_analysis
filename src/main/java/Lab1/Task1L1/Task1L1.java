@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Task1L1 extends MainTaskL1 {
 
-    private Map<Integer, Integer> statRow= new HashMap<>();
+    private Map<Double, Integer> statRow= new HashMap<>();
 
     /**
      * requires that sortedRow must be filled in
@@ -32,8 +32,8 @@ public class Task1L1 extends MainTaskL1 {
             }
         }
 
-        if(!statRow.containsKey(sortedRow.get(109)))
-            statRow.put(sortedRow.get(109), 1);
+        if(!statRow.containsKey(sortedRow.get(sortedRow.size()-1)))
+            statRow.put(sortedRow.get(sortedRow.size()-1), 1);
 
     }
 
@@ -54,6 +54,13 @@ public class Task1L1 extends MainTaskL1 {
         //        )
         //);
 
+    }
+
+    public Task1L1(List<Double> list) {
+
+        super(list);
+        Collections.sort(sortedRow);
+        initMap();
     }
 
     private void createTable1(){

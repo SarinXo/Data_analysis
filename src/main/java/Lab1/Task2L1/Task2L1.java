@@ -15,12 +15,15 @@ public class Task2L1 extends MainTaskL1 {
     private final int k = (int)Math.round(1 +3.32 * Math.log10(numCount));
 
     //interval length
-    private final double h= ((double)(sortedRow.get(numCount-1) - sortedRow.get(0))/k);
+    private final double h = ((double)(sortedRow.get(numCount-1) - sortedRow.get(0))/k);
 
     public Task2L1(){
         super();
     }
 
+    public Task2L1(List<Double> list){
+        super(list);
+    }
     protected List<Double[]> getData(){
 
         List<Double[]> Data = new ArrayList<>();

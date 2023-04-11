@@ -36,7 +36,7 @@ public class BarChart extends ChartPattern {
                     categoryAyisLabel,
                     dataset,
                     PlotOrientation.VERTICAL,
-                    true,true,false
+                    true,false,false
         );
 
     }

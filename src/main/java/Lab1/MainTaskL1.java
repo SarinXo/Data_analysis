@@ -1,6 +1,6 @@
 package Lab1;
 
-import FileChooser.FileChooser;
+import FilesWork.FileChooser;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -11,10 +11,9 @@ import java.util.Scanner;
 
 public abstract class MainTaskL1 {
 
-    protected List<Integer> row = new ArrayList<Integer>();
+    protected List<Double> row = new ArrayList<Double>();
     protected int numCount;
-    protected List<Integer> sortedRow = new ArrayList<Integer>();
-
+    protected List<Double> sortedRow = new ArrayList<Double>();
 
 
    /**
@@ -24,13 +23,12 @@ public abstract class MainTaskL1 {
 
         JFileChooser file = FileChooser.openFileDialog();
 
-        //start init
         if (file.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
                 Scanner in = new Scanner(file.getSelectedFile());
 
                 while (in.hasNextInt()) {
-                    row.add(in.nextInt());
+                    row.add((double)in.nextInt());
                 }
 
                 in.close();
@@ -45,6 +43,13 @@ public abstract class MainTaskL1 {
         sortedRow.addAll(row);
         Collections.sort(sortedRow);
 
+    }
+
+    public MainTaskL1(List<Double> p){
+        row.addAll(p);
+        sortedRow.addAll(p);
+        numCount = row.size();
+        Collections.sort(sortedRow);
     }
 
     public void startTask(){

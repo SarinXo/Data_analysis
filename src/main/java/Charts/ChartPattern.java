@@ -9,8 +9,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public abstract class ChartPattern  extends Chart{
 
     public ChartPattern(DefaultCategoryDataset dataset,
-                     String applicationTitle ,
-                     String chartTitle ,
+                     String applicationTitle,
+                     String chartTitle,
                      String categoryAxisLabel,
                      String categoryAyisLabel,
                      int width, int height) {

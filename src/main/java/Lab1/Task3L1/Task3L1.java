@@ -4,10 +4,15 @@ package Lab1.Task3L1;
 import Charts.BarChart.BarChart;
 import Charts.LineChart.LineChart;
 import Lab1.Task2L1.Task2L1;
+import javafx.util.Pair;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Task3L1 extends Task2L1 {
 
@@ -15,20 +20,63 @@ public class Task3L1 extends Task2L1 {
 
     public Task3L1(){
         super();
+        initMap();
+    }
+
+    public Task3L1(List<Double> list){
+        super(list);
+        initMap();
+    }
+
+    private Map<Double, Integer> statRow= new LinkedHashMap<>();
+
+    /**
+     * requires that sortedRow must be filled in
+     */
+    private void initMap(){
+
+        int count = 1;
+        for(int i = 0; i< numCount-1; i++){
+
+            if(sortedRow.get(i).equals(sortedRow.get(i + 1))) {
+                count++;
+
+            } else {
+                statRow.put(sortedRow.get(i), count);
+                count = 1;
+            }
+        }
+
+        if(!statRow.containsKey(sortedRow.get(sortedRow.size()-1)))
+            statRow.put(sortedRow.get(sortedRow.size()-1), 1);
+
     }
 
     private DefaultCategoryDataset createDataset( int indexValueData, String rowKey, int indexColumnKey) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
 
-        Double[] str = new Double[7];
+        Integer[] str = new Integer[7];
         for(var row : Data) {
             int i =0;
             for(var variable : row){
-                str[i] = variable;
+                str[i] = variable.intValue();
                 i++;
             }
 
             dataset.addValue( str[indexValueData] , rowKey , str[indexColumnKey] );
+        }
+
+        return dataset;
+    }
+
+    private DefaultCategoryDataset createDataset2( int indexValueData, String rowKey, int indexColumnKey) {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
+
+
+        for(var row : statRow.entrySet()) {
+            Pair<Double, Integer> pair = new Pair<>(row.getKey(), row.getValue());
+
+
         }
 
         return dataset;
